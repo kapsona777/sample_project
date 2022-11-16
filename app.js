@@ -1,16 +1,15 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose'); 
-require('.env').config();
+const bodyParser = require('body-parser');
+require('dotenv/config');
 
-// //Middleware
-// app.use(auth);
+//Import Routes 
+const postsRoute = require('./routes/posts');
 
-
-//ROUTERS
-app.get("/", (req, res) => {
-    res.send("Hello World!");
-}); 
+// //Middleware 
+app.use(bodyParser.json());
+app.use('/posts', postsRoute);
 
 //Connect To DB
 mongoose.connect(   process.env.DB_CONNECTION,
