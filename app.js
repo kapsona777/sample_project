@@ -7,11 +7,15 @@ require('dotenv/config');
 
 //Import Routes 
 const postsRoute = require('./routes/posts');
+const usersRoute = require('./routes/users');
+const authRoute = require('./routes/auth');
 
 // //Middleware 
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/posts', postsRoute);
+app.use('/users', usersRoute);
+app.use('/auth', authRoute);
 
 //Connect To DB
 mongoose.connect(   process.env.DB_CONNECTION,
