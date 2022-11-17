@@ -9,6 +9,7 @@ require('dotenv/config');
 const postsRoute = require('./routes/posts');
 const usersRoute = require('./routes/users');
 const authRoute = require('./routes/auth');
+const verifyRoute = require('./routes/verifyLogin');
 
 // //Middleware 
 app.use(cors());
@@ -16,6 +17,7 @@ app.use(bodyParser.json());
 app.use('/posts', postsRoute);
 app.use('/users', usersRoute);
 app.use('/auth', authRoute);
+app.use('/verify', verifyRoute);
 
 //Connect To DB
 mongoose.connect(   process.env.DB_CONNECTION,
