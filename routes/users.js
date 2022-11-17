@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/User'); 
+const User = require('../models/User');  
+const verify = require('./verifyToken');
 
 // GET BACK ALL THE users
-router.get('/', async (req,res) => {
+router.get('/',verify, async (req,res) => {
     try{
         const users = await User.find();
         res.json(users);
@@ -12,12 +13,12 @@ router.get('/', async (req,res) => {
     }
 });
 
-router.get('/specific', (req,res) => {
+router.get('/specific',verify, (req,res) => {
     res.send("Specific user");
 });
 
 // SUBMITS A USER
-router.post('/', (req,res) => {
+router.post('/', verify,(req,res) => {
     const user = new User({
         email: req.body.email,
         password: req.body.password,
@@ -36,7 +37,7 @@ router.post('/', (req,res) => {
 })
 
 // SPECIFIC User
-router.get('/:userId', async (req,res) => {
+router.get('/:userId', verify, async (req,res) => {
     try{
         const user = await User.findById(req.params.userId);
         res.json(user);
@@ -47,7 +48,7 @@ router.get('/:userId', async (req,res) => {
 });
 
 // DELETE User
-router.delete('/:userId', async (req,res) => {
+router.delete('/:userId', verify, async (req,res) => {
     try{
         const removedUser = await User.remove({_id: req.params.userId});
         res.json(removedUser);
@@ -57,7 +58,7 @@ router.delete('/:userId', async (req,res) => {
 });
 
 // UPDATE User
-router.patch('/:userId', async (req,res) => {
+router.patch('/:userId', verify, async (req,res) => {
     try{
         const updatedUser = await User.updateOne(
             {_id: req.params.userId},
