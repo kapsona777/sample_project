@@ -1,0 +1,82 @@
+#regForm {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    width: 400px; 
+    gap:5px;  
+    box-shadow: #8e44ad 0px 10px 50px;
+    background: linear-gradient(120deg,#0072be, #fa44bd);
+
+    input{
+        background-color:transparent;
+        color: white;
+        border: 0;
+        border-bottom:0.3px solid white; 
+        border-radius:2px;
+        padding:3px;
+        padding-left:5px;
+        width: 300px;
+        height:25px;
+
+        &:focus{
+            outline:none; 
+            border: 1px solid white;
+        }
+
+        &::placeholder{
+            color: white;
+        }
+    }
+}
+
+.defaultButtons{
+    background-color:transparent;
+    color: white;
+    border: 0;
+    border-radius:2px;
+    padding:3px;
+    padding-left:5px;
+    width: 150px;
+    height:25px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover{
+        background-color: white;
+        color: #0072be;
+    }
+}
+
+#navToLog{
+    padding-top:40px;
+    display:flex;
+    flex-direction: column;
+    align-items: bottom;
+    justify-content: center;
+    height: 150px;
+    label{
+        color: white;
+        cursor: pointer;
+    }
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%; 
+}
+
+#inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%; 
+    gap:5px;  
+}

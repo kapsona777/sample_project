@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class UserLoginComponent {
   title = "Login Page"; 
+
+  loginToSystem(userInfo:{pUserName:string, pUserPassword:string}){
+    console.log(userInfo);
+  }
 }

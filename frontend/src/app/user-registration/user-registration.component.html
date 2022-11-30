@@ -1,0 +1,16 @@
+<div id="content">
+    <form id="regForm" #regForm="ngForm" (ngSubmit)="regToSystem(regForm.value)">
+        <div id="inputs"> 
+            <input name="pEmail" type="text" id="email" placeholder="Email" ngModel/>
+            <input name="pPassword" type="password" id="password" placeholder="Password" ngModel/>
+            <input name="pUsername" type="text" id="username" placeholder="Username" ngModel/>
+            <input name="pFirstname" type="text" id="firstName" placeholder="First Name" ngModel/>
+            <input name="pLastname" type="text" id="lastName" placeholder="Last Name" ngModel/>
+            <button type="submit" class="defaultButtons" id="registerButton">Register</button>
+        </div>
+        <form id="navToLog">
+            <label for="register">Already have an account?</label>
+            <a routerLink="" id="login"><button type="submit" class="defaultButtons" id="navToLogButton">Login</button></a> 
+        </form>
+    </form> 
+</div>
